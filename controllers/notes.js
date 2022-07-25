@@ -16,8 +16,22 @@ function create (req, res) {
     })
 }
 
+function index (req, res) {
+    Note.find({})
+    .populate('author')
+    .then(notes => {
+        res.json(notes)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({err: err.err})
+    })
+
+}
+
 
 export {
     create,
+    index,
 
 }
