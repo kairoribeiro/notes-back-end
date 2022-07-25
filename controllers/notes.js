@@ -29,9 +29,22 @@ function index (req, res) {
 
 }
 
+function deleteOne(req, res) {
+    Note.findByIdAndDelete(req.params.id)
+    .then(deletedNote => {
+        res.json(deletedNote)
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({err: err.err})
+    })
+
+}
+
 
 export {
     create,
     index,
+    deleteOne as delete
 
 }

@@ -11,6 +11,7 @@ router.get('/', notesCtrl.index)
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, notesCtrl.create)
+router.delete('/:id', checkAuth, notesCtrl.delete)
 
 
 export { router }
