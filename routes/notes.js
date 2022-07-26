@@ -12,6 +12,7 @@ router.get('/', notesCtrl.index)
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, notesCtrl.create)
 router.delete('/:id', checkAuth, notesCtrl.delete)
+router.put('/:id', checkAuth, notesCtrl.update)
 
 
 export { router }
